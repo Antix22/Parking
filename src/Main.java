@@ -11,102 +11,103 @@ public class Main {
         List<Vehicle> vehicles = new ArrayList<>();
         String choise;
         boolean isFind = false;
-        do{
+        do {
             System.out.println("1 - Motor");
             System.out.println("2 - Samochód");
             System.out.println("3 - Ciężarówka");
             int rodzajPojazdu = scanner.nextInt();
 
-        switch (rodzajPojazdu){
-            case 1:
+            switch (rodzajPojazdu) {
+                case 1:
 
 
-                do{
-                    System.out.println("podaj marke");
-                String brand = scanner.nextLine();
-                    scanner.nextLine();
+                    do {
+                        System.out.println("podaj marke");
+                        String brand = scanner.next();
+                        scanner.nextLine();
 
-                    System.out.println("podaj rejestracje");
-                    String rejestracja = scanner.nextLine();
+                        System.out.println("podaj rejestracje");
+                        String rejestracja = scanner.nextLine();
 
-                    System.out.println("podaj model");
-                    String model = scanner.nextLine();
+                        System.out.println("podaj model");
+                        String model = scanner.nextLine();
 
-                    System.out.println("podaj pojemnosc");
-                    int pojemnosc = scanner.nextInt();
-                    scanner.nextLine();
-                MotorBike motorBike = new MotorBike(brand, rejestracja, model, pojemnosc);
-                vehicles.add(motorBike);
-                isFind = true;
+                        System.out.println("podaj pojemnosc");
+                        int pojemnosc = scanner.nextInt();
+                        scanner.nextLine();
+                        MotorBike motorBike = new MotorBike(brand, rejestracja, model, pojemnosc);
+                        vehicles.add(motorBike);
+                        isFind = true;
 
-                if(isFind)
-                    System.out.println("czy wprowadzić kolejny motocykl");
-                       choise = scanner.nextLine();
-                }
-                while(choise.equalsIgnoreCase("Tak"));
+                        if (isFind)
+                            System.out.println("czy wprowadzić kolejny motocykl");
+                        choise = scanner.nextLine();
 
-                break;
-            case 2:
-                do{
-                    System.out.println("podaj marke");
-                    String brand = scanner.nextLine();
-                    scanner.nextLine();
+                    }
+                    while (choise.equalsIgnoreCase("Tak"));
 
-                    System.out.println("podaj rejestracje");
-                    String rejestracja = scanner.nextLine();
+                    break;
+                case 2:
+                    do {
+                        System.out.println("podaj marke");
+                        String brand = scanner.next();
+                        scanner.nextLine();
 
-                    System.out.println("podaj model");
-                    String model = scanner.nextLine();
+                        System.out.println("podaj rejestracje");
+                        String rejestracja = scanner.nextLine();
 
-                    System.out.println("podaj typ");
-                    String type = scanner.nextLine();
+                        System.out.println("podaj model");
+                        String model = scanner.nextLine();
 
-                    Car car = new Car(brand, rejestracja, model, type);
-                    vehicles.add(car);
-                    isFind = true;
+                        System.out.println("podaj typ");
+                        String type = scanner.nextLine();
 
-                    if(isFind)
-                        System.out.println("czy wprowadzić kolejny motocykl");
-                    choise = scanner.nextLine();
-                }
-                while(choise.equalsIgnoreCase("Tak"));
-                break;
+                        Car car = new Car(brand, rejestracja, model, type);
+                        vehicles.add(car);
+                        isFind = true;
 
-            case 3:
-                do{
-                    System.out.println("podaj marke");
-                    String brand = scanner.next();
-                    scanner.nextLine();
+                        if (isFind)
+                            System.out.println("czy wprowadzić kolejny samochód");
+                        choise = scanner.nextLine();
+                    }
+                    while (choise.equalsIgnoreCase("Tak"));
+                    break;
 
-                    System.out.println("podaj rejestracje");
-                    String rejestracja = scanner.nextLine();
+                case 3:
+                    do {
+                        System.out.println("podaj marke");
+                        String brand = scanner.next();
+                        scanner.nextLine();
 
-                    System.out.println("podaj model");
-                    String model = scanner.nextLine();
+                        System.out.println("podaj rejestracje");
+                        String rejestracja = scanner.nextLine();
 
-                    System.out.println("czy ma przyczepe");
-                    boolean przyczepa = scanner.nextBoolean();
+                        System.out.println("podaj model");
+                        String model = scanner.nextLine();
 
-                    scanner.nextLine();
-                    Truck truck = new Truck(brand, rejestracja, model, przyczepa);
-                    vehicles.add(truck);
-                    isFind = true;
+                        System.out.println("czy ma przyczepe");
+                        boolean przyczepa = scanner.nextBoolean();
 
-                    if(isFind)
-                        System.out.println("czy wprowadzić kolejną cie");
-                    choise = scanner.nextLine();
+                        scanner.nextLine();
+                        Truck truck = new Truck(brand, rejestracja, model, przyczepa);
+                        vehicles.add(truck);
+                        isFind = true;
 
-                }
-                while(choise.equalsIgnoreCase("Tak"));
-                break;
+                        if (isFind)
+                            System.out.println("czy wprowadzić kolejną ciężarówkę");
+                        choise = scanner.nextLine();
 
-        }
+                    }
+                    while (choise.equalsIgnoreCase("Tak"));
+                    break;
+
+            }
             System.out.println("czy chcesz dodać inny pojazd");
-        choise = scanner.nextLine();
-        }while(choise.equalsIgnoreCase("Tak"));
+            choise = scanner.nextLine();
+        } while (choise.equalsIgnoreCase("Tak"));
 
 
-        for(Vehicle vehicle : vehicles){
+        for (Vehicle vehicle : vehicles) {
             vehicle.display();
         }
 
@@ -114,6 +115,12 @@ public class Main {
 
         List<Parking> parkings = new ArrayList<>();
         parkings.add(parking);
+        for (Parking parking1 : parkings) {
+            parking1.display();
+            parking1.setNumberOfSpots(parking1.getNumberOfSpots() - vehicles.size());
+            parking1.display();
+
         }
 
+    }
 }

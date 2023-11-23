@@ -12,6 +12,9 @@ public class Vehicle {
         this.model = model;
     }
 
+    public Vehicle() {
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -43,4 +46,5 @@ public class Vehicle {
                 ", model='" + model + '\'' +
                 '}');
     }
+
 }
