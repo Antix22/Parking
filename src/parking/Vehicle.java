@@ -12,6 +12,9 @@ public class Vehicle {
         this.model = model;
     }
 
+    public Vehicle(Vehicle usun) {
+    }
+
     public Vehicle() {
     }
 
@@ -47,4 +50,8 @@ public class Vehicle {
                 '}');
     }
 
+
+
+
 }
+

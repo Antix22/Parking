@@ -1,15 +1,18 @@
 package parking;
 
 public class Truck extends Vehicle{
- boolean isTrailer;
+    String isTrailer;
 
     public Truck(String brand, String registration, String model) {
         super(brand, registration, model);
     }
 
-    public Truck(String brand, String registration, String model, boolean isTrailer) {
+    public Truck(String brand, String registration, String model, String isTrailer) {
         super(brand, registration, model);
-        this.isTrailer = isTrailer;
+        if(isTrailer.equalsIgnoreCase("tak"))
+            this.isTrailer = isTrailer;
+        else isTrailer.isEmpty();
+
     }
 
     @Override
