@@ -35,7 +35,7 @@ public class Parking  extends Vehicle{
     }
 
     public void displayPrice(){
-        System.out.println("cena to " + price);
+        System.out.println("Do zapłaty masz " + price);
     }
 
     public void displaySeats(){
