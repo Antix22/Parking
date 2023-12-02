@@ -12,7 +12,8 @@ Każdy pojazd ma przypisaną cene która wynosi dla motory 5zł, samochodu 10zł
 ceny te są za godzine, płaci się dopiero przy wyjeżdżaniu z parkingu(usuwaniu) wtedy trzeba podać ile godzin pojazd stał na parkingu
 parking ma przypisaną liczbę miejsc 1000
 miejsca na parkingu po dodaniu pojazdu usuwają się, oraz dodają przy usuwaniu
-miejsca są wypisywane przez metode displaySeats() z klasy Parking
+miejsca są wypisywane przez metode displaySeats() z klasy Parking oraz metody display z tej samej klasy 
+ta pierwsza wypisuje ile jest zajętych a druga ile jest jeszcze weolnych miejsc
 pojazdy są wypisywane przez metode display z klasy vehicle,
 cena jest wypisywania przez displayPrice z klasy parking
 cena wynosi cena * ilosc godzin
