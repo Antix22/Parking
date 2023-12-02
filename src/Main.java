@@ -33,17 +33,17 @@ public class Main {
 
 
                             do {
-                                System.out.println("podaj marke");
+                                System.out.println("podaj marke (bez cyfr)");
                                 String brand = scanner.next();
                                 scanner.nextLine();
 
-                                System.out.println("podaj rejestracje");
+                                System.out.println("podaj rejestracje (2 pierwsze znaki to litery, a kolejne znaki to cyfry, conajmniej 2)");
                                 String rejestracja = scanner.nextLine();
 
                                 System.out.println("podaj model");
                                 String model = scanner.nextLine();
 
-                                System.out.println("podaj pojemnosc");
+                                System.out.println("podaj pojemnosc (tylko cyfry)");
                                 int pojemnosc = scanner.nextInt();
                                 scanner.nextLine();
                                 MotorBike motorBike = new MotorBike(brand, rejestracja, model, pojemnosc);
@@ -54,8 +54,9 @@ public class Main {
 
 
                                 if (isFind)
-                                    System.out.println("czy wprowadzić kolejny motocykl");
+                                    System.out.println("czy wprowadzić kolejny motocykl (jesli tak napisz `tak`)");
                                 choise = scanner.next();
+
 
                             }
                             while (choise.equalsIgnoreCase("Tak"));
@@ -63,17 +64,17 @@ public class Main {
                             break;
                         case 2:
                             do {
-                                System.out.println("podaj marke");
+                                System.out.println("podaj marke (bez cyfr)");
                                 String brand = scanner.next();
                                 scanner.nextLine();
 
-                                System.out.println("podaj rejestracje");
+                                System.out.println("podaj rejestracje (2 pierwsze znaki to litery, a kolejne znaki to cyfry, conajmniej 2)");
                                 String rejestracja = scanner.nextLine();
 
                                 System.out.println("podaj model");
                                 String model = scanner.nextLine();
 
-                                System.out.println("podaj typ");
+                                System.out.println("podaj typ (sedan, suv, kabriolet lub coupe)");
                                 String type = scanner.nextLine();
 
                                 Car car = new Car(brand, rejestracja, model, type);
@@ -83,7 +84,7 @@ public class Main {
 
 
                                 if (isFind)
-                                    System.out.println("czy wprowadzić kolejny samochód");
+                                    System.out.println("czy wprowadzić kolejny samochód (jesli tak napisz `tak`)");
                                 choise = scanner.next();
                             }
                             while (choise.equalsIgnoreCase("Tak"));
@@ -91,17 +92,17 @@ public class Main {
 
                         case 3:
                             do {
-                                System.out.println("podaj marke");
+                                System.out.println("podaj marke (bez cyfr)");
                                 String brand = scanner.next();
                                 scanner.nextLine();
 
-                                System.out.println("podaj rejestracje");
+                                System.out.println("podaj rejestracje (2 pierwsze znaki to litery, a kolejne znaki to cyfry, conajmniej 2)");
                                 String rejestracja = scanner.nextLine();
 
                                 System.out.println("podaj model");
                                 String model = scanner.nextLine();
 
-                                System.out.println("czy ma przyczepe");
+                                System.out.println("czy ma przyczepe (jeśli ma napisz tak)");
                                 String przyczepa = scanner.next();
 
                                 scanner.nextLine();
@@ -111,7 +112,7 @@ public class Main {
 
 
                                 if (isFind)
-                                    System.out.println("czy wprowadzić kolejną ciężarówkę");
+                                    System.out.println("czy wprowadzić kolejną ciężarówkę (jesli tak napisz `tak`)");
                                 choise = scanner.next();
 
 
@@ -130,24 +131,25 @@ public class Main {
                     System.out.println("1 - Motor, Do zapłaty masz 5zł/godzina");
                     System.out.println("2 - Samochód, Do zapłaty masz 10zł/godzina");
                     System.out.println("3 - Ciężarówka Do zapłaty masz 15zł/godzina");
-                    rodzajPojazdu = scanner.nextInt();
+                    int usunPojazd = scanner.nextInt();
 
                     boolean found = false;
-                    switch (rodzajPojazdu) {
+                    switch (usunPojazd) {
                         case 1:
-                            System.out.println("Podaj numer rejestracyjny pojazdu do usunięcia:");
+                            System.out.println("Podaj numer rejestracyjny pojazdu do usunięcia: (pierwsze 2 litery podaj z shiftem lub caps lockiem)");
                             String rejestracjaMotor = scanner.next();
 
-                            System.out.println("ile godzin był na parkingu?");
-                            int hours = scanner.nextInt();
-                            price = 5;
-                            endPrice += hours * price;
+
 
                             for (Iterator<Vehicle> iterator = vehicles.iterator(); iterator.hasNext(); ) {
                                 Vehicle vehicle = iterator.next();
                                 if (vehicle.getRegistration().equals(rejestracjaMotor)) {
                                     iterator.remove();
                                     found = true;
+                                    System.out.println("ile godzin był na parkingu?");
+                                    int hours = scanner.nextInt();
+                                    price = 5;
+                                    endPrice += hours * price;
                                     System.out.println("Pojazd o numerze rejestracyjnym " + rejestracjaMotor + " został usunięty.");
                                     break;
                                 }
@@ -161,11 +163,7 @@ public class Main {
                         case 2:
                             System.out.println("Podaj numer rejestracyjny pojazdu do usunięcia:");
                             String rejestracjaSamochod = scanner.next();
-                            System.out.println("ile godzin bedzie na parkingu?");
 
-                            int hours1 = scanner.nextInt();
-                            price = 10;
-                            endPrice += hours1 * price;;
 
                             for (Iterator<Vehicle> iterator = vehicles.iterator(); iterator.hasNext(); ) {
                                 Vehicle vehicle = iterator.next();
@@ -173,6 +171,11 @@ public class Main {
                                     iterator.remove();
                                     found = true;
                                     System.out.println("Pojazd o numerze rejestracyjnym " + rejestracjaSamochod + " został usunięty.");
+                                    System.out.println("ile godzin bedzie na parkingu?");
+
+                                    int hours1 = scanner.nextInt();
+                                    price = 10;
+                                    endPrice += hours1 * price;;
                                     break;
                                 }
                             }
@@ -186,16 +189,17 @@ public class Main {
                             System.out.println("Podaj numer rejestracyjny pojazdu do usunięcia:");
                             String rejestracjaTruck = scanner.next();
 
-                            System.out.println("ile godzin był na parkingu?");
-                            int hours2 = scanner.nextInt();
-                            price = 15;
-                            endPrice += hours2 * price;
+
 
                             for (Iterator<Vehicle> iterator = vehicles.iterator(); iterator.hasNext(); ) {
                                 Vehicle vehicle = iterator.next();
                                 if (vehicle.getRegistration().equals(rejestracjaTruck)) {
                                     iterator.remove();
                                     found = true;
+                                    System.out.println("ile godzin był na parkingu?");
+                                    int hours2 = scanner.nextInt();
+                                    price = 15;
+                                    endPrice += hours2 * price;
                                     System.out.println("Pojazd o numerze rejestracyjnym " + rejestracjaTruck + " został usunięty.");
                                     break;
                                 }
@@ -210,7 +214,7 @@ public class Main {
 
 
             }
-            System.out.println("czy chcesz dodać inny pojazd lub go usunąć");
+            System.out.println("czy chcesz dodać inny pojazd lub go usunąć (jesli tak napisz `tak`)");
             choise = scanner.next();
         } while (choise.equalsIgnoreCase("Tak"));
 
@@ -225,16 +229,19 @@ public class Main {
         List<Parking> parkings = new ArrayList<>();
         parkings.add(parking);
         for (Parking parking1 : parkings) {
-            System.out.println();
-            parking1.displayPrice();
-            System.out.println();
-            parking1.setNumberOfSpots(parking1.getNumberOfSpots() - vehicles.size());
-            parking1.display();
-            System.out.println();
-            parking1.setNumberOfSpots(parking.getNumberOfSpots() - (parking1.getNumberOfSpots() - vehicles.size()));
-            parking1.displaySeats();
 
-        }
+                System.out.println();
+                parking1.displayPrice();
+                System.out.println();
+                 {
+                    parking1.setNumberOfSpots(parking1.getNumberOfSpots() - vehicles.size());
+                }
+                parking1.display();
+                System.out.println();
+                parking1.setNumberOfSpots(parking.getNumberOfSpots() - (parking1.getNumberOfSpots() - vehicles.size()));
+                parking1.displaySeats();
+            }
+
 
     }
 }

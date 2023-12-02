@@ -16,6 +16,9 @@ public class Parking  extends Vehicle{
     }
 
     public Parking(int numberOfSpots, double price) {
+        if (numberOfSpots < 0 || price < 0) {
+            System.out.println("Liczba miejsc i cena nie mogą być ujemne");
+        }
         this.numberOfSpots = numberOfSpots;
         this.price = price;
     }

@@ -1,7 +1,10 @@
 package parking;
 
+import java.util.Scanner;
+
 public class Car extends Vehicle{
     String type;
+    Scanner scanner = new Scanner(System.in);
 
     public Car(String brand, String registration, String model) {
         super(brand, registration, model);
@@ -9,7 +12,17 @@ public class Car extends Vehicle{
 
     public Car(String brand, String registration, String model, String type) {
         super(brand, registration, model);
-        this.type = type;
+
+        switch (type.toLowerCase()) {
+            case "sedan":
+            case "suv":
+            case "kabriolet":
+            case "coupe":
+                this.type = type.toLowerCase();
+                break;
+            default:
+                type.isEmpty();
+        }
     }
 
     @Override
