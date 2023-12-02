@@ -1,14 +1,11 @@
 package parking;
 
-public class Parking  extends Vehicle{
+public class Parking  {
 
     private int numberOfSpots;
     private double price;
 
 
-    public Parking(String brand, String registration, String model) {
-        super(brand, registration, model);
-    }
 
     public Parking(int numberOfSpots) {
 
@@ -33,9 +30,6 @@ public class Parking  extends Vehicle{
         this.numberOfSpots = numberOfSpots;
     }
 
-    public double countPrice(){
-        return numberOfSpots * (price *(23/100) + price);
-    }
 
     public void displayPrice(){
         System.out.println("Do zapłaty masz " + price);
@@ -45,7 +39,7 @@ public class Parking  extends Vehicle{
         System.out.println("Liczba miejsc zajętych na parkingu: "+ numberOfSpots);
     }
 
-    @Override
+
     public void display() {
         {
             System.out.println("Parking posiada jeszcze " +
