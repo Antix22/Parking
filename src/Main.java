@@ -10,6 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         List<Vehicle> vehicles = new ArrayList<>();
+
         String choise;
         double price = 0;
         double endPrice= 0;
@@ -18,8 +19,10 @@ public class Main {
 
 
 
-            System.out.println("1 - Dodaj pojazd");
-            System.out.println("2 - usun pojazd");
+            System.out.println("1 - Dodaj pojazd (ręcznie)");
+            System.out.println("2 - usun pojazd (ręcznie)");
+            System.out.println("3 - dodaj pojazdy automatycznie");
+
             int dodajUsun = scanner.nextInt();
 
             switch(dodajUsun){
@@ -175,7 +178,7 @@ public class Main {
 
                                     int hours1 = scanner.nextInt();
                                     price = 10;
-                                    endPrice += hours1 * price;;
+                                    endPrice += hours1 * price;
                                     break;
                                 }
                             }
@@ -210,17 +213,47 @@ public class Main {
                                 System.out.println("Nie znaleziono pojazdu o numerze rejestracyjnym " + rejestracjaTruck);
                             }
                             break;
-                    }
+                    } break;
 
+                case 3:
+                    vehicles.add(new MotorBike("Harley-Davidson", "AB123", "Sportster", 1200));
+                    vehicles.add(new MotorBike("Honda", "XY789", "CBR600RR", 600));
+                    vehicles.add(new MotorBike("Kawasaki", "MN456", "Ninja ZX-10R", 1000));
+                    vehicles.add(new MotorBike("Yamaha", "JK321", "YZF-R1", 1000));
+                    vehicles.add(new MotorBike("Ducati", "QWE789", "Monster", 821));
+                    vehicles.add(new MotorBike("BMW", "PLM678", "S1000RR", 1000));
+                    vehicles.add(new MotorBike("Suzuki", "WER456", "GSX-R750", 750));
+                    vehicles.add(new Car("Toyota", "ABC111", "Camry", "sedan"));
+                    vehicles.add(new Car("Ford", "XYZ222", "Mustang", "coupe"));
+                    vehicles.add(new Car("Honda", "MNO333", "Civic", "sedan"));
+                    vehicles.add(new Car("Chevrolet", "JKL444", "Corvette", "coupe"));
+                    vehicles.add(new Car("Volkswagen", "QWE555", "Golf", "suv"));
+                    vehicles.add(new Car("Mercedes-Benz", "PLM666", "C-Class", "sedan"));
+                    vehicles.add(new Car("Audi", "WER777", "A4", "sedan"));
+                    vehicles.add(new Truck("Volvo", "ABC777", "FH16", "Tak"));
+                    vehicles.add(new Truck("Scania", "XYZ888", "R730", "Tak"));
+                    vehicles.add(new Truck("Mercedes-Benz", "MNO999", "Actros", "Nie"));
+                    vehicles.add(new Truck("MAN", "JKL000", "TGX", "Nie"));
+                    vehicles.add(new Truck("Iveco", "QWE111", "Stralis", "Tak"));
+                    vehicles.add(new Truck("Kenworth", "PLM222", "W990", "Nie"));
+                    vehicles.add(new Truck("Peterbilt", "WER333", "579", "Tak"));
 
+                    System.out.println("Pojazdy dodane automatycznie");
+                    for (Vehicle vehicle : vehicles) {
+                        vehicle.display();
+                        System.out.println("-------------------------");                    }
+                    break;
             }
             System.out.println("czy chcesz dodać inny pojazd lub go usunąć (jesli tak napisz `tak`)");
             choise = scanner.next();
         } while (choise.equalsIgnoreCase("Tak"));
 
-
+        System.out.println("Aktualny status parkingu");
+        System.out.println("-------------------------");
         for (Vehicle vehicle : vehicles) {
+
             vehicle.display();
+            System.out.println("-------------------------");
         }
 
         Parking parking = new Parking(1000, endPrice);
@@ -230,14 +263,14 @@ public class Main {
         parkings.add(parking);
         for (Parking parking1 : parkings) {
 
-                System.out.println();
-                parking1.displayPrice();
-                System.out.println();
+            System.out.println("-------------------------");
+            parking1.displayPrice();
+            System.out.println("-------------------------");
                  {
                     parking1.setNumberOfSpots(parking1.getNumberOfSpots() - vehicles.size());
                 }
                 parking1.display();
-                System.out.println();
+            System.out.println("-------------------------");;
                 parking1.setNumberOfSpots(parking.getNumberOfSpots() - (parking1.getNumberOfSpots() - vehicles.size()));
                 parking1.displaySeats();
             }

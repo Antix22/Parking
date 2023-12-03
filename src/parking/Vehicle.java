@@ -12,18 +12,18 @@ public class Vehicle {
 
     public Vehicle(String brand, String registration, String model) {
 
-            while (!brand.matches("[A-Za-z]+")){
+            while (!brand.matches("[A-Za-z-]+")){
                 System.out.println("Nie poprawne dane, Wprowadź poprawne dane");
                 System.out.println("podaj markę");
                 brand = scanner.next();
 
             }
-        while ( registration.length() < 4 ||
-                !registration.substring(0, 2).matches("[A-Za-z]+") ||
-                !registration.substring(2).matches("\\d+")){
-            System.out.println("Nie poprawne dane, Wprowadź poprawne dane");
-
-            System.out.println("podaj rejestracje");
+        while ( registration.length() < 3 ||
+                (!registration.substring(0, 2).matches("[A-Za-z]+") &&
+                        !registration.substring(0, 1).matches("[A-Za-z]+") &&
+                        !registration.substring(2).matches("\\d+"))) {
+            System.out.println("Niepoprawne dane, wprowadź poprawne dane");
+            System.out.println("Podaj rejestrację");
             registration = scanner.next();
         }
 
